@@ -1,0 +1,44 @@
+{
+    "name": "marshmallow/nova-calendar",
+    "description": "A powerful event calendar Tool for Laravel's Nova 5.",
+    "keywords": [
+        "laravel",
+        "nova",
+        "calendar",
+        "event-calendar",
+        "events",
+        "date"
+    ],
+    "license": [
+        "AGPL-3.0-or-later",
+        "proprietary"
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^10|^11|^12",
+        "laravel/nova": "^5.0"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Marshmallow\\NovaCalendar\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Marshmallow\\NovaCalendar\\ToolServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
