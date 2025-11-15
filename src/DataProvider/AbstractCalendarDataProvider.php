@@ -89,7 +89,7 @@ abstract class AbstractCalendarDataProvider implements CalendarDataProviderInter
         return $this;
     }
 
-    public function startOfCalendar(Carbon $v = null): Carbon
+    public function startOfCalendar(?Carbon $v = null): Carbon
     {
         if (!is_null($v)) {
             $this->startOfCalendar = $v;
@@ -98,7 +98,7 @@ abstract class AbstractCalendarDataProvider implements CalendarDataProviderInter
         return $this->startOfCalendar;
     }
 
-    public function endOfCalendar(Carbon $v = null): Carbon
+    public function endOfCalendar(?Carbon $v = null): Carbon
     {
         if (!is_null($v)) {
             $this->endOfCalendar = $v;
@@ -107,7 +107,7 @@ abstract class AbstractCalendarDataProvider implements CalendarDataProviderInter
         return $this->endOfCalendar;
     }
 
-    public function startOfRange(Carbon $v = null): Carbon
+    public function startOfRange(?Carbon $v = null): Carbon
     {
         if (!is_null($v)) {
             $this->startOfRange = $v;
@@ -116,7 +116,7 @@ abstract class AbstractCalendarDataProvider implements CalendarDataProviderInter
         return $this->startOfRange;
     }
 
-    public function endOfRange(Carbon $v = null): Carbon
+    public function endOfRange(?Carbon $v = null): Carbon
     {
         if (!is_null($v)) {
             $this->endOfRange = $v;
@@ -182,7 +182,7 @@ abstract class AbstractCalendarDataProvider implements CalendarDataProviderInter
         return $this->activeFilterKey;
     }
 
-    public function setActiveFilterKey(string $v = null): void
+    public function setActiveFilterKey(?string $v = null): void
     {
         $this->activeFilterKey = $v;
     }

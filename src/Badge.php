@@ -7,7 +7,7 @@ class Badge
     public $badge = '';
     public $tooltip = null;
 
-    public function __construct(string $badge, string $tooltip = null)
+    public function __construct(string $badge, ?string $tooltip = null)
     {
         $this->badge = $badge;
         $this->tooltip = $tooltip;

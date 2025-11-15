@@ -47,7 +47,7 @@ abstract class NovaEventGenerator implements EventGeneratorInterface
     private $novaResourceClass = null;
     private $toEventSpec = null;
 
-    public function __construct(string $novaResourceClass = null, $toEventSpec = null)
+    public function __construct(?string $novaResourceClass = null, $toEventSpec = null)
     {
         $this->novaResourceClass = $novaResourceClass;
         $this->toEventSpec = $toEventSpec;
@@ -71,7 +71,7 @@ abstract class NovaEventGenerator implements EventGeneratorInterface
         return $this->toEventSpec;
     }
 
-    protected function resourceToEvent(NovaResource $resource, string $dateAttributeStart, string $dateAttributeEnd = null): Event
+    protected function resourceToEvent(NovaResource $resource, string $dateAttributeStart, ?string $dateAttributeEnd = null): Event
     {
         return Event::fromResource($resource, $dateAttributeStart, $dateAttributeEnd);
     }
