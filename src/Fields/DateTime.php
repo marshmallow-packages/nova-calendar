@@ -22,7 +22,7 @@ class DateTime extends BaseField
      * @param  string  $format
      * @return void
      */
-    public static function setGlobalFormat(string $format = null): void
+    public static function setGlobalFormat(?string $format = null): void
     {
         self::$globalFormat = $format;
     }
@@ -59,7 +59,7 @@ class DateTime extends BaseField
      * @param  (callable(mixed, mixed, ?string):mixed)|null  $resolveCallback
      * @return void
      */
-    public function __construct($name, $attribute = null, callable $resolveCallback = null)
+    public function __construct($name, $attribute = null, ?callable $resolveCallback = null)
     {
         parent::__construct($name, $attribute, $resolveCallback);
 

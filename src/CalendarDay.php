@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Log;
 
 class CalendarDay implements CalendarDayInterface
 {
-    public static function forDateInYearAndMonth(Carbon $date, int $year, int $month, int $firstDayOfWeek = null): self
+    public static function forDateInYearAndMonth(Carbon $date, int $year, int $month, ?int $firstDayOfWeek = null): self
     {
         $firstDayOfWeek = $firstDayOfWeek ?? NovaCalendar::MONDAY;
 
@@ -99,7 +99,7 @@ class CalendarDay implements CalendarDayInterface
         return array_map(fn($b): array => $b->toArray(), $this->badges);
     }
 
-    public function badges(array $v = null): array
+    public function badges(?array $v = null): array
     {
         if (!is_null($v)) {
             foreach ($v as $badge) {
@@ -110,7 +110,7 @@ class CalendarDay implements CalendarDayInterface
         return $this->badges;
     }
 
-    public function addBadge(string $v, string $tooltip = null): self
+    public function addBadge(string $v, ?string $tooltip = null): self
     {
         $this->badges[] = new Badge($v, $tooltip);
         return $this;

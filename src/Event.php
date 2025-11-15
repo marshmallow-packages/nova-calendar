@@ -9,7 +9,7 @@ use Laravel\Nova\Resource as NovaResource;
 
 class Event
 {
-    public static function fromResource(NovaResource $resource, string $dateAttributeStart, string $dateAttributeEnd = null): self
+    public static function fromResource(NovaResource $resource, string $dateAttributeStart, ?string $dateAttributeEnd = null): self
     {
         return is_null($dateAttributeEnd)
             ? (new self($resource->title(), $resource->model()->$dateAttributeStart))->withResource($resource)
@@ -32,7 +32,7 @@ class Event
     public function __construct(
         string $name,
         DateTimeInterface $start,
-        DateTimeInterface $end = null,
+        ?DateTimeInterface $end = null,
         string $notes = '',
         array $badges = []
     ) {
@@ -98,7 +98,7 @@ class Event
         return $daysLeft <= 7 - CalendarDay::weekdayColumn($displayDate, $firstDayOfWeek);
     }
 
-    public function resource(NovaResource $v = null): ?NovaResource
+    public function resource(?NovaResource $v = null): ?NovaResource
     {
         if (!is_null($v)) {
             $this->novaResource = $v;
@@ -113,7 +113,7 @@ class Event
         return $this;
     }
 
-    public function hasNovaResource(string $class = null): bool
+    public function hasNovaResource(?string $class = null): bool
     {
         if (is_null($class)) {
             return !is_null($this->novaResource);
@@ -124,7 +124,7 @@ class Event
 
     // Deprecated; here for backwards compatibility with pre-1.2 releases,
     // when only a single style per event was supported
-    public function style(string $v = null)
+    public function style(?string $v = null)
     {
         if (!is_null($v) && count($this->styles) == 0) {
             $this->addStyle($v);
@@ -146,7 +146,7 @@ class Event
         return $this->addStyle($v);
     }
 
-    public function url(string $v = null): ?string
+    public function url(?string $v = null): ?string
     {
         if (!is_null($v)) {
             $this->url = $v;
@@ -177,7 +177,7 @@ class Event
         return $this->novaResource ? $this->novaResource->model() : null;
     }
 
-    public function name(string $v = null): string
+    public function name(?string $v = null): string
     {
         if (!is_null($v)) {
             $this->name = $v;
@@ -192,7 +192,7 @@ class Event
         return $this;
     }
 
-    public function timezone(string $v = null): string
+    public function timezone(?string $v = null): string
     {
         if (!is_null($v)) {
             $this->timezone = $v;
@@ -209,7 +209,7 @@ class Event
         return $this;
     }
 
-    public function timeFormat(string $v = null): string
+    public function timeFormat(?string $v = null): string
     {
         if (!is_null($v)) {
             $this->timeFormat = $v;
@@ -224,7 +224,7 @@ class Event
         return $this;
     }
 
-    public function start(DateTimeInterface $v = null): DateTimeInterface
+    public function start(?DateTimeInterface $v = null): DateTimeInterface
     {
         if (!is_null($v)) {
             $this->start = $v;
@@ -239,7 +239,7 @@ class Event
         return $this;
     }
 
-    public function end(DateTimeInterface $v = null): ?DateTimeInterface
+    public function end(?DateTimeInterface $v = null): ?DateTimeInterface
     {
         if (!is_null($v)) {
             $this->end = $v;
@@ -254,7 +254,7 @@ class Event
         return $this;
     }
 
-    public function notes(string $v = null): string
+    public function notes(?string $v = null): string
     {
         if (!is_null($v)) {
             $this->notes = $v;
@@ -269,7 +269,7 @@ class Event
         return $this;
     }
 
-    public function styles(array $v = null): array
+    public function styles(?array $v = null): array
     {
         if (!is_null($v)) {
             $this->styles = $v;
@@ -307,7 +307,7 @@ class Event
         return $this;
     }
 
-    public function badges(array $v = null): array
+    public function badges(?array $v = null): array
     {
         if (!is_null($v)) {
             $this->badges = $v;
